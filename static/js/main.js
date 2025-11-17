@@ -115,6 +115,7 @@ function showSlide(index) {
             });
         }
     } else if (slide.type === 'image') {
+        imgEl.src = ''; // сбрасываем старый кадр
         const src = slide._blobUrl || slide.src;
         // если использовали blobURL - можно сразу присвоить
         imgEl.src = src;
