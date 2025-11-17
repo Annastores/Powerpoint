@@ -39,6 +39,18 @@ def set_slide():
 @app.route("/control")
 def control():
     return render_template("control.html")
+@app.route("/setSlide2", methods=["POST", "GET"])
+def set_slide2():
+    global current_slide
+    slide_num = request.args.get("slide")
+    if slide_num is not None:
+        if slide_num == 10:
+            current_slide -=1
+        else:
+             current_slide +=1
+       
+        return jsonify({"status": "ok", "current_slide": current_slide})
+    return jsonify({"status": "error", "message": "slide parameter missing"})
 if __name__ == '__main__':
     port = 5000
     app.run(host="0.0.0.0", port=port)
