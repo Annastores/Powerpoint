@@ -8,7 +8,6 @@ let slideKeys = [];
 let currentSlideIndex = 0;
 let loaded=  false
 let videoonprogres = false
-// Получаем слайды с бекенда
 fetch('/slides')
 .then(res => res.json())
 .then(data => {
@@ -59,7 +58,7 @@ playBtn.addEventListener('click', () => {
 // Показ слайда
 function showSlide(index) {
     if(index < 0 || index >= slideKeys.length) return;
-
+console.log("updated")
     currentSlideIndex = index;
     const slide = slides[slideKeys[index]];
 
