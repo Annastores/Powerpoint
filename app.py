@@ -46,8 +46,8 @@ def set_slide2():
     if slide_num is not None:
         if slide_num == 10:
             current_slide -=1
-        else:
-             current_slide +=1
+        elif slide_num == 15:
+             current_slide = 0
        
         return jsonify({"status": "ok", "current_slide": current_slide})
     return jsonify({"status": "error", "message": "slide parameter missing"})
