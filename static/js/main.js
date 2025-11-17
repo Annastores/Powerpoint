@@ -99,11 +99,12 @@ function showSlide(index) {
         // навешиваем обработчик onended — удаляем старый сначала чтобы не накапливать
         videoEl.onended = null;
         videoEl.onended = () => {
-            const next = currentSlideIndex + 1;
-            // отправляем индекс *текущего* слайда на сервер (или нового — выбирайте по логике)
-            sendSlideIndex(next);
-            videoonprogres = false;
-            showSlide(next);
+            videoEl.pause();
+            // const next = currentSlideIndex + 1;
+            // // отправляем индекс *текущего* слайда на сервер (или нового — выбирайте по логике)
+            // sendSlideIndex(next);
+            // videoonprogres = false;
+            // showSlide(next);
         };
 
         // Попытка проиграть (пользователь уже кликнул Play => жест есть)
@@ -117,7 +118,6 @@ function showSlide(index) {
     } else if (slide.type === 'image') {
     const src = slide._blobUrl || slide.src;
 
-    // Прячем img до загрузки
     imgEl.style.display = 'none';
     imgEl.src = ''; // сбрасываем старый кадр
 
