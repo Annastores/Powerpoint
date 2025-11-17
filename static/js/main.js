@@ -1,6 +1,8 @@
 const videoEl = document.getElementById('slideVideo');
 const imgEl = document.getElementById('slideImage');
 const playBtn = document.getElementById('playButton');
+const loadingstopBtn = document.getElementById('loading');
+
 const container = document.getElementById('slideContainer');
 
 let slides = {};
@@ -16,14 +18,19 @@ fetch('/slides')
     slides = data;
     slideKeys = Object.keys(slides); // оставил ваш стиль: slides может быть объектом или массивом
     preloadSlides(slides, slideKeys).then(() => {
+        loadingstopBtn.style.display = 'none';
         playBtn.style.display = 'block'; // показать кнопку Play после предзагрузки
     }).catch(err => {
         console.error('Preload error:', err);
         // всё равно показать кнопку — пользователь кликнет и тогда загрузим в момент жеста
+                loadingstopBtn.style.display = 'none';
+
         playBtn.style.display = 'block';
     });
 }).catch(err => {
     console.error('Ошибка получения /slides:', err);
+            loadingstopBtn.style.display = 'none';
+
     playBtn.style.display = 'block';
 });
 

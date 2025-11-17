@@ -10,11 +10,13 @@ slides = {
     "5": { "type": "video", "src": "/static/videos/5.mp4" },
     "6": { "type": "video", "src": "/static/videos/6.mp4" },
     "7": { "type": "video", "src": "/static/videos/7.mp4" },
-        "8": { "type": "video", "src": "/static/videos/8.mp4" },
-
+    "8": { "type": "video", "src": "/static/videos/8.mp4" },
     "9": { "type": "video", "src": "/static/videos/9.mp4" },
     "10": { "type": "video", "src": "/static/videos/10.mp4" },
-    "11": { "type": "video", "src": "/static/videos/11.mp4" },
+    "10": { "type": "video", "src": "/static/videos/10b.mp4" },
+    "12": { "type": "video", "src": "/static/videos/11.mp4" },
+    "13": { "type": "video", "src": "/static/videos/12.mp4" },
+
 
 }
 current_slide = 0
