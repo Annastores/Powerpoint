@@ -85,6 +85,7 @@ function showSlide(index) {
     try { videoEl.pause(); } catch(e){}
 
     if (slide.type === 'video') {
+        imgEl.src = '';
         // если предзагрузили blobURL - используем его, иначе используем оригинальный src
         const src = slide._blobUrl || slide.src;
         videoEl.src = src;
@@ -115,7 +116,6 @@ function showSlide(index) {
             });
         }
     } else if (slide.type === 'image') {
-        imgEl.src = ''; // сбрасываем старый кадр
         const src = slide._blobUrl || slide.src;
         // если использовали blobURL - можно сразу присвоить
         imgEl.src = src;
