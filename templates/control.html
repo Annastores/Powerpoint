@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Controller</title>
+</head>
+<body style="font-size:40px;">
+    <button onclick="prev()">⬅ Prev</button>
+    <button onclick="next()">Next ➡</button>
+
+<script>
+let current = 0;
+
+function send(n) {
+    fetch("/setSlide", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slide: n })
+    });
+}
+setInterval(() => {
+ fetch("/currentSlide")
+        .then(r => r.json())
+        .then(data =>{ current = data.slide});
+}, 500);
+    
+function next() {
+    current++;
+    send(current);
+}
+
+function prev() {
+    current--;
+    if (current < 0) current = 0;
+    send(current);
+}
+</script>
+</body>
+</html>

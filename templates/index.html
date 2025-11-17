@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Slideshow</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: rgb(29, 28, 28);
+        }
+
+        #slideContainer {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        #slideVideo, #slideImage {
+            width: 100%;
+            height: 100%;
+            display: none;
+            object-fit: cover;
+        }
+
+        #playButton {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px 40px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div id="slideContainer">
+        <video id="slideVideo" autoplay></video>
+        <img id="slideImage">
+        <button id="playButton">Play</button>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
