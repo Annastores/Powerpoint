@@ -44,9 +44,9 @@ def set_slide2():
     global current_slide
     slide_num = request.args.get("slide")
     if slide_num is not None:
-        if slide_num == 10:
+        if slide_num == 10 or slide_num == "10":
             current_slide -=1
-        elif slide_num == 15:
+        elif slide_num == 15 or slide_num == "15":
              current_slide = 0
        
         return jsonify({"status": "ok", "current_slide": current_slide})
